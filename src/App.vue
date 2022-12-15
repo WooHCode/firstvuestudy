@@ -1,15 +1,33 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    원룸샵
+    <h4>{{products[0]}} 원룸 </h4>
+    <p>50 만원</p>
+  </div>
+
+  <div>
+    <h4>{{products[1]}} 원룸 </h4>
+    <p>60 만원</p>
+  </div>
+
+  <div>
+    <h4>{{products[2]}} 원룸 </h4>
+    <p>70 만원</p>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
 
 export default {
   name: 'App',
+  data () {
+    return{
+      products : ['역삼동 원룸', '천호동 원룸','마포구 원룸']
+    }
+  },
   components: {
-    HelloWorld
   }
 }
 </script>
