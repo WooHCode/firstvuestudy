@@ -1,11 +1,22 @@
 <template>
+  
+  <div class="black-bg" v-if="opened == true">
+    <div class="white-bg">
+      <h4>상세페이지임</h4>
+      <p>상세페이지 내용임</p>
+      <button @click="opened=false">닫기</button>
+    </div>
+  </div>
+  
   <div class="menu">
     <a v-for="menubar in menus" :key="menubar">{{menubar}}</a>
   </div>
 
+
+
   <div>
     <img src="./assets/room0.jpg" class="room-img">
-    <h4>{{products[0]}}</h4>
+    <h4 @click="opened = true">{{products[0]}}</h4>
     <p>50만원</p>
     <button @click="increase(0)">허위매물신고</button> <span>신고수 : {{count[0]}}</span>
   </div>
@@ -33,6 +44,7 @@ export default {
   name: 'App',
   data () {
     return{
+      opened : false,
       count : [0,0,0],
       products : ['역삼동 원룸','천호동 원룸','마포구 원룸'],
       costs : ['50만원','60만원','70만원'],
@@ -50,6 +62,24 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+div {
+  box-sizing: border-box;
+}
+.black-bg{
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  position: fixed; padding: 20px;
+}
+
+.white-bg{
+  width: 100%;
+  background: white;
+  border-radius: 8px; padding: 20px;
+}
+
 .room-img{
   width: 100%;
   margin-top: 40px;
