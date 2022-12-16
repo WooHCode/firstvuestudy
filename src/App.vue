@@ -14,36 +14,23 @@
 
 
 
-  <div>
-    <img src="./assets/room0.jpg" class="room-img">
-    <h4 @click="opened = true">{{products[0]}}</h4>
-    <p>50만원</p>
-    <button @click="increase(0)">허위매물신고</button> <span>신고수 : {{count[0]}}</span>
+  <div v-for="(item, index) in items" :key="index">
+    <img :src="items[index].image" class="room-img">
+    <h4>{{items[index].title}}</h4>
+    <p>{{items[index].price}}원</p>
   </div>
 
-  <div>
-    <img src="./assets/room1.jpg" class="room-img">
-    <h4>{{products[1]}}</h4>
-    <p>60만원</p>
-    <button @click="increase(1)">허위매물신고</button> <span>신고수 : {{count[1]}}</span>
-  </div>
-
-  <div>
-    <img src="./assets/room2.jpg" class="room-img">
-    <h4>{{products[2]}}</h4>
-    <p>70만원</p>
-    <button @click="increase(2)">허위매물신고</button> <span>신고수 : {{count[2]}}</span>
-  </div>
 </template>
 
 <script>
 
-
+import data from './assets/data.js'
 
 export default {
   name: 'App',
   data () {
     return{
+      items : data,
       opened : false,
       count : [0,0,0],
       products : ['역삼동 원룸','천호동 원룸','마포구 원룸'],
